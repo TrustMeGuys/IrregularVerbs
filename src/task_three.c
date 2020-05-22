@@ -130,3 +130,18 @@ int check_user_answer(int x, int* answer_user)
     }
     return z;
 }
+
+int return_task_three(int x)
+{
+    if (x == 0)
+        exit(EXIT_SUCCESS);
+    else if (x == 1)
+        main();
+    else if (x == 2)
+        task_three();
+    else {
+        printf("Вы ввели что-то другое...");
+        return -1;
+    }
+    return 0;
+}
