@@ -47,3 +47,50 @@ int variant_answer(int x)
     check_answer(x);
     return 0;
 }
+
+int check_answer(int x)
+{
+    int f;
+    int* answer_user;
+    if (x % 2 == 0) {
+        f = 5;
+    } else if (x % 3 == 0 && x % 2 != 0) {
+        f = 8;
+    } else if (x % 2 != 0 && x % 3 != 0) {
+        f = 10;
+    }
+    answer_user = (int*)malloc(f * sizeof(int));
+    printf("Введите через enter цифры в правильном порядке:\n");
+    for (int i = 0; i < f; i++) {
+        scanf("%d", &answer_user[i]);
+    }
+    if (x % 2 == 0) {
+        int z = check_user_answer(x, answer_user);
+        if (z == 5) {
+            printf("Мои поздравления!\n");
+            continue_task(3);
+        } else {
+            printf("Number of matched numbers:%d\n", z);
+            continue_task(3);
+        }
+    } else if (x % 3 == 0 && x % 2 != 0) {
+        int z = check_user_answer(x, answer_user);
+        if (z == 8) {
+            printf("Мои поздравления!\n");
+            continue_task(3);
+        } else {
+            printf("Number of matched numbers:%d\n", z);
+            continue_task(3);
+        }
+    } else if (x % 2 != 0 && x % 3 != 0) {
+        int z = check_user_answer(x, answer_user);
+        if (z == 10) {
+            printf("Мои поздравления!\n");
+            continue_task(3);
+        } else {
+            printf("Number of matched numbers:%d", z);
+            continue_task(3);
+        }
+    }
+    return 0;
+}
