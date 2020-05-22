@@ -23,3 +23,27 @@ int task_three()
     fclose(three_task);
     return 0;
 }
+
+int variant_answer(int x)
+{
+    FILE* answer_third;
+    answer_third
+            = fopen("../text_file/"
+                    "variant_answer_third.txt",
+                    "r");
+    if (answer_third == NULL) {
+        printf("Кажется произошла ошибка открытия файла...");
+        return 1;
+    }
+    char ch[B] = {0}, ch1[B] = {0};
+    for (int i = 1; i < x + 1; i++) {
+        if (i == x) {
+            fgets(ch1, B, answer_third);
+            printf("%s\n", ch1);
+        }
+        fgets(ch, B, answer_third);
+    }
+    fclose(answer_third);
+    check_answer(x);
+    return 0;
+}
