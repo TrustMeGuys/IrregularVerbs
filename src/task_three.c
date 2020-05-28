@@ -1,10 +1,14 @@
 #include "IrregularVerbs.h"
-#define B 90
+#define B 200
 
 int task_three()
 {
-    printf("Выберите номер предложения, которое хотите перевести:\n");
+    printf("Выберите номер предложения, которое хотите перевести (1-7):\n");
     int num_sent = choose_your_number();
+    if ((num_sent > 7) || (num_sent < 1)) {
+        printf("Мы же попросили, от 1 до 7!!!\n");
+        return -1;
+    }
     FILE* three_task;
     three_task = fopen("../text_file/three_task.txt", "r");
     if (three_task == NULL) {
@@ -88,7 +92,7 @@ int check_answer(int num_sent)
             printf("Мои поздравления!\n");
             continue_task(3);
         } else {
-            printf("Number of matched numbers:%d", z);
+            printf("Number of matched numbers:%d\n", z);
             continue_task(3);
         }
     }
