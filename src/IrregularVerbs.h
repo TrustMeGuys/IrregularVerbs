@@ -1,0 +1,11 @@
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main();
+int open_first_task();
+int second_task();
+int task_three();
+int return_task_one();
+int return_task_two();
+int return_task_three();
