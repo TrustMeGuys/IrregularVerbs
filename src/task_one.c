@@ -5,6 +5,39 @@
 #include <stdlib.h>
 #include <string.h>
 
+int see_answer(
+        int z,
+        char ch1[A],
+        char ch2[A],
+        char second_verb[A],
+        char third_verb[A])
+{
+    char answer[3] = {0}, yes[3] = "y", no[3] = "n";
+    scanf("%s", answer);
+    if (strcmp(answer, yes) == 0) {
+        if (z == 1) {
+            printf("Вторая форма глагола: %s\n", second_verb);
+            printf("Правильный ответ: %s\n", ch1);
+            continue_task(1);
+
+        } else if (z == 2) {
+            printf("Третья форма глагола:%s\n", third_verb);
+            printf("Правильный ответ: %s\n", ch2);
+            continue_task(1);
+        } else if (z == 3) {
+            printf("Вторая форма глагола: %s\n", second_verb);
+            printf("Правильный ответ: %s\n", ch1);
+            printf("Третья форма глагола:%s\n", third_verb);
+            printf("Правильный ответ: %s\n", ch2);
+            continue_task(1);
+        }
+    } else if (strcmp(answer, no) == 0) {
+        continue_task(1);
+    } else if (strcmp(answer, no) != 0 && strcmp(answer, yes) != 0) {
+        printf("Вы чет не то ввели.");
+    }
+    return 0;
+}
 int check_answer_first(int x)
 {
     printf("Введите вторую форму глагола:\n");
