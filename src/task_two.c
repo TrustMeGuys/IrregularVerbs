@@ -3,6 +3,20 @@
 #include <stdlib.h>
 #include <string.h>
 
+int return_task_two(int x)
+{
+    if (x == 0)
+        exit(EXIT_SUCCESS);
+    else if (x == 1)
+        main();
+    else if (x == 2)
+        second_task();
+    else {
+        printf("Вы ввели что-то другое...");
+        return -1;
+    }
+    return 0;
+}
 int check_answer_second(int z)
 {
     printf("\nВыберете одну цифру:\n");
