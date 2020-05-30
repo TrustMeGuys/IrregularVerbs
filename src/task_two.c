@@ -1,3 +1,5 @@
+#include "task_two.h"
+#include "all_task.h"
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
