@@ -5,6 +5,20 @@
 #include <stdlib.h>
 #include <string.h>
 
+int return_task_one(int x)
+{
+    if (x == 0)
+        exit(EXIT_SUCCESS);
+    else if (x == 1)
+        main();
+    else if (x == 2)
+        open_first_task();
+    else {
+        printf("Вы ввели что-то другое...");
+        return -1;
+    }
+    return 0;
+}
 int see_answer(
         int z,
         char ch1[A],
