@@ -5,6 +5,53 @@
 #include <stdlib.h>
 #include <string.h>
 
+int check_answer(int num_sent)
+{
+    int f;
+    if (num_sent % 2 == 0) {
+        f = 5;
+    } else if (num_sent % 3 == 0 && num_sent % 2 != 0) {
+        f = 8;
+    } else if (num_sent % 2 != 0 && num_sent % 3 != 0) {
+        f = 10;
+    }
+    int* answer_user = (int*)malloc(f * sizeof(int));
+    printf("Введите через enter цифры в правильном порядке:\n");
+    for (int i = 0; i < f; i++) {
+        scanf("%d", &answer_user[i]);
+    }
+    if (num_sent % 2 == 0) {
+        int z = check_user_answer(num_sent, answer_user);
+        if (z == 5) {
+            printf("Мои поздравления!\n");
+            continue_task(3);
+        } else {
+            printf("Number of matched numbers:%d\n", z);
+            continue_task(3);
+        }
+    } else if (num_sent % 3 == 0 && num_sent % 2 != 0) {
+        int z = check_user_answer(num_sent, answer_user);
+        if (z == 8) {
+            printf("Мои поздравления!\n");
+            continue_task(3);
+        } else {
+            printf("Number of matched numbers:%d\n", z);
+            continue_task(3);
+        }
+    } else if (num_sent % 2 != 0 && num_sent % 3 != 0) {
+        int z = check_user_answer(num_sent, answer_user);
+        if (z == 10) {
+            printf("Мои поздравления!\n");
+            continue_task(3);
+        } else {
+            printf("Number of matched numbers:%d\n", z);
+            continue_task(3);
+        }
+    }
+    free(answer_user);
+    return 0;
+}
+
 int variant_answer(int num_sent)
 {
     FILE* answer_third;
