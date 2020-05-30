@@ -5,6 +5,30 @@
 #include <stdlib.h>
 #include <string.h>
 
+int variant_answer(int num_sent)
+{
+    FILE* answer_third;
+    answer_third
+            = fopen("../text_file/"
+                    "variant_answer_third.txt",
+                    "r");
+    if (answer_third == NULL) {
+        printf("Кажется произошла ошибка открытия файла...");
+        return 1;
+    }
+    char ch[B] = {0}, ch1[B] = {0};
+    for (int i = 1; i < num_sent + 1; i++) {
+        if (i == num_sent) {
+            fgets(ch1, B, answer_third);
+            printf("%s\n", ch1);
+        }
+        fgets(ch, B, answer_third);
+    }
+    fclose(answer_third);
+    check_answer(num_sent);
+    return 0;
+}
+
 int task_three()
 {
     printf("Выберите номер предложения, которое хотите перевести (1-7):\n");
