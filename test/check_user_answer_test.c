@@ -33,3 +33,33 @@ CTEST(task_three_data_suite, correct_check_user_answer_sent_3)
 
     ASSERT_EQUAL(expected, result);
 }
+
+CTEST(task_three_data_suite, incorrect_check_user_answer_sent_1)
+{
+    int num_sent = 1;
+    int answer_user[10] = {1, 2, 3323, 5, 431, 94, 832, 7, 6, 10};
+    const int result = check_user_answer(num_sent, answer_user);
+    const int expected = 4;
+
+    ASSERT_EQUAL(expected, result);
+}
+
+CTEST(task_three_data_suite, incorrect_check_user_answer_sent_2)
+{
+    int num_sent = 2;
+    int answer_user[5] = {3, 6789, 5, 232, 1232};
+    const int result = check_user_answer(num_sent, answer_user);
+    const int expected = 2;
+
+    ASSERT_EQUAL(expected, result);
+}
+
+CTEST(task_three_data_suite, incorrect_check_user_answer_sent_3)
+{
+    int num_sent = 3;
+    int answer_user[8] = {7, 6, 1, 3, 2, 5, 4, 8};
+    const int result = check_user_answer(num_sent, answer_user);
+    const int expected = 4;
+
+    ASSERT_EQUAL(expected, result);
+}
