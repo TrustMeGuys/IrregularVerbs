@@ -4,6 +4,6 @@
 
 int choose_your_number();
 int open_all_task();
-int continue_task(int z);
+int continue_task(int val_for_return);
 
 #endif
