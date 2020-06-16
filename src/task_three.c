@@ -7,22 +7,22 @@
 
 int check_user_answer(int num_sent, int* answer_user)
 {
-    int z = 0;
+    int num_correct_answer = 0;
     if (num_sent % 2 == 0) {
         int variant1_1[5] = {2, 3, 1, 4, 5}, variant1_2[5] = {1, 5, 4, 3, 2},
             variant1_3[5] = {3, 4, 5, 2, 1};
         for (int i = 0; i < 5; i++) {
             if ((num_sent == 4) || (num_sent == 6) || (num_sent == 8)) {
                 if (variant1_1[i] == answer_user[i]) {
-                    z++;
+                    num_correct_answer++;
                 }
             } else if (num_sent == 10) {
                 if (variant1_2[i] == answer_user[i]) {
-                    z++;
+                    num_correct_answer++;
                 }
             } else if (num_sent == 2) {
                 if (variant1_3[i] == answer_user[i]) {
-                    z++;
+                    num_correct_answer++;
                 }
             }
         }
@@ -32,11 +32,11 @@ int check_user_answer(int num_sent, int* answer_user)
         for (int i = 0; i < 8; i++) {
             if (num_sent == 3) {
                 if (variant2_1[i] == answer_user[i]) {
-                    z++;
+                    num_correct_answer++;
                 }
             } else if (num_sent == 9) {
                 if (variant2_2[i] == answer_user[i]) {
-                    z++;
+                    num_correct_answer++;
                 }
             }
         }
@@ -47,63 +47,63 @@ int check_user_answer(int num_sent, int* answer_user)
         for (int i = 0; i < 10; i++) {
             if (num_sent == 1) {
                 if (variant3_1[i] == answer_user[i]) {
-                    z++;
+                    num_correct_answer++;
                 }
             } else if (num_sent == 7) {
                 if (variant3_2[i] == answer_user[i]) {
-                    z++;
+                    num_correct_answer++;
                 }
             } else if (num_sent == 5) {
                 if (variant3_3[i] == answer_user[i]) {
-                    z++;
+                    num_correct_answer++;
                 }
             }
         }
     }
-    return z;
+    return num_correct_answer;
 }
 
 int check_answer(int num_sent)
 {
-    int f;
+    int size_answer;
     if (num_sent % 2 == 0) {
-        f = 5;
+        size_answer = 5;
     } else if (num_sent % 3 == 0 && num_sent % 2 != 0) {
-        f = 8;
+        size_answer = 8;
     } else if (num_sent % 2 != 0 && num_sent % 3 != 0) {
-        f = 10;
+        size_answer = 10;
     }
-    int* answer_user = (int*)malloc(f * sizeof(int));
+    int* answer_user = (int*)malloc(size_answer * sizeof(int));
     printf("Введите через enter или пробел цифры в правильном порядке:\n");
-    for (int i = 0; i < f; i++) {
+    for (int i = 0; i < size_answer; i++) {
         scanf("%d", &answer_user[i]);
     }
     if (num_sent % 2 == 0) {
-        int z = check_user_answer(num_sent, answer_user);
-        if (z == 5) {
+        int num_correct_answer = check_user_answer(num_sent, answer_user);
+        if (num_correct_answer == 5) {
             printf("Мои поздравления!\n");
-            continue_task(4);
+            continue_task(3);
         } else {
-            printf("Количество совпавших номеров: %d\n", z);
-            continue_task(4);
+            printf("Количество совпавших номеров: %d\n", num_correct_answer);
+            continue_task(3);
         }
     } else if (num_sent % 3 == 0 && num_sent % 2 != 0) {
-        int z = check_user_answer(num_sent, answer_user);
-        if (z == 8) {
+        int num_correct_answer = check_user_answer(num_sent, answer_user);
+        if (num_correct_answer == 8) {
             printf("Мои поздравления!\n");
-            continue_task(4);
+            continue_task(3);
         } else {
-            printf("Number of matched numbers:%d\n", z);
-            continue_task(4);
+            printf("Количество совпавших номеров: %d\n", num_correct_answer);
+            continue_task(3);
         }
     } else if (num_sent % 2 != 0 && num_sent % 3 != 0) {
-        int z = check_user_answer(num_sent, answer_user);
-        if (z == 10) {
+        int num_correct_answer = check_user_answer(num_sent, answer_user);
+        if (num_correct_answer == 10) {
             printf("Мои поздравления!\n");
-            continue_task(4);
+            continue_task(3);
         } else {
-            printf("Number of matched numbers:%d\n", z);
-            continue_task(4);
+            printf("Количество совпавших номеров: %d\n", num_correct_answer);
+            continue_task(3);
         }
     }
     free(answer_user);
@@ -161,13 +161,13 @@ int task_three()
     return 0;
 }
 
-int return_task_three(int num_sent)
+int return_task_three(int num_choice)
 {
-    if (num_sent == 0)
+    if (num_choice == 0)
         exit(EXIT_SUCCESS);
-    else if (num_sent == 1)
+    else if (num_choice == 1)
         main();
-    else if (num_sent == 2)
+    else if (num_choice == 2)
         task_three();
     else {
         printf("Вы ввели что-то другое...");
