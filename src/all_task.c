@@ -9,9 +9,9 @@
 
 int choose_your_number()
 {
-    int x = 0;
-    scanf("%d", &x);
-    return x;
+    int num_choice = 0;
+    scanf("%d", &num_choice);
+    return num_choice;
 }
 
 int open_all_task()
@@ -31,20 +31,19 @@ int open_all_task()
     return 0;
 }
 
-int continue_task(int z)
+int continue_task(int val_for_return)
 {
-    printf("Хотите выбрать другое упражнение? Или попробовать еще раз? (1/2)(0 "
-           "выйти из "
-           "программы)\n");
-    int x;
-    scanf("%d", &x);
-    if (z != 1 && z != 2 && z != 3)
+    printf("Для возврата в меню введите 1. Для продолжения выбранного ранее "
+           "задания введите 2. Для выхода из программы введите 0.\n");
+    int num_choice;
+    scanf("%d", &num_choice);
+    if (val_for_return != 1 && val_for_return != 2 && val_for_return != 3)
         printf("Вы ввели что-то другое...\n");
-    else if (z == 2)
-        return_task_one(x);
-    else if (z == 3)
-        return_task_two(x);
-    else
-        return_task_three(x);
+    else if (val_for_return == 1)
+        return_task_one(num_choice);
+    else if (val_for_return == 2)
+        return_task_two(num_choice);
+    else if (val_for_return == 3)
+        return_task_three(num_choice);
     return 0;
 }
