@@ -12,5 +12,7 @@ int see_answer(
         char third_verb[A]);
 int check_answer_first(int x);
 int open_first_task();
+int check_user_verb(char* second_verb, char* third_verb);
+int check_see_answer(char* answer, char* no, char* yes);
 
 #endif
