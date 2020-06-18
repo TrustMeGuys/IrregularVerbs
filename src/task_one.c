@@ -20,7 +20,7 @@ int check_see_answer(char* answer, char* no, char* yes)
 {
     if (strcmp(answer, no) != 0 && strcmp(answer, yes) != 0) {
         printf("Вы ввели что-то другое.");
-        exit(1);
+        return (1);
     } else
         return 0;
 }
@@ -54,13 +54,13 @@ int see_answer(
         continue_task(1);
     return 0;
 }
-int check_user_verb(char* second_verb, char* third_verb)
+int check_user_verb(char* user_verb)
 {
-    for (int i = 0; second_verb[i];) {
-        if (isalpha(third_verb[i]) && isalpha(second_verb[i]))
+    for (int i = 0; user_verb[i];) {
+        if (isalpha(user_verb[i])) {
             i++;
-        else {
-            printf("Вы ввели не буквы.");
+        } else {
+            printf("Вы ввели что-то другое.\n");
             return 1;
         }
     }
@@ -71,9 +71,10 @@ int check_answer_first(int x)
     printf("Введите вторую форму глагола:\n");
     char second_verb[A] = {0}, third_verb[A] = {0};
     scanf("%s", second_verb);
+    check_user_verb(second_verb);
     printf("Введите третью форму лагола\n");
     scanf("%s", third_verb);
-    check_user_verb(second_verb, third_verb);
+    check_user_verb(third_verb);
 
     char ch[A] = {0}, ch1[A] = {0}, ch2[A] = {0};
     FILE* answer_first;
