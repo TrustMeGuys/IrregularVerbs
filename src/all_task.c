@@ -7,10 +7,19 @@
 #include <stdlib.h>
 #include <string.h>
 
+int check_choose_number(int num_choice)
+{
+    if (num_choice <= 0) {
+        printf(" Вы ввели что-то другое.\n");
+        exit(1);
+    } else
+        return 0;
+}
 int choose_your_number()
 {
     int num_choice = 0;
     scanf("%d", &num_choice);
+    check_choose_number(num_choice);
     return num_choice;
 }
 
@@ -31,15 +40,26 @@ int open_all_task()
     return 0;
 }
 
+int check_continue(int val_for_return, int num_choice)
+{
+    if (val_for_return != 1 && val_for_return != 2 && val_for_return != 3) {
+        printf("Вы ввели что-то другое.\n");
+        exit(1);
+    }
+    if (num_choice != 1 && num_choice != 2 && num_choice != 0) {
+        printf(" Вы ввели что-то другое.\n");
+        exit(1);
+    }
+    return 0;
+}
 int continue_task(int val_for_return)
 {
     printf("Для возврата в меню введите 1. Для продолжения выбранного ранее "
            "задания введите 2. Для выхода из программы введите 0.\n");
     int num_choice;
     scanf("%d", &num_choice);
-    if (val_for_return != 1 && val_for_return != 2 && val_for_return != 3)
-        printf("Вы ввели что-то другое...\n");
-    else if (val_for_return == 1)
+    check_continue(val_for_return, num_choice);
+    if (val_for_return == 1)
         return_task_one(num_choice);
     else if (val_for_return == 2)
         return_task_two(num_choice);
