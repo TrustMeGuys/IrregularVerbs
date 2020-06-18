@@ -5,7 +5,7 @@ CC=gcc
 CFLAGS=-c -Wall -Werror
 LDFLAGS=-Wall -Werror
 SOURCES=main.c all_task.c task_one.c task_two.c task_three.c
-SOURCES_TEST=main-test.c check_user_answer_test.c all_task.c task_one.c task_two.c task_three.c
+SOURCES_TEST=main-test.c check_user_answer_test.c all_task.c test_task_one.c task_one.c task_two.c task_three.c 
 VPATH=src test
 
 .PHONY: all clean
