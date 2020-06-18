@@ -1,10 +1,10 @@
 #include "task_one.h"
 #include "all_task.h"
 #include <assert.h>
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
 int return_task_one(int x)
 {
@@ -14,11 +14,15 @@ int return_task_one(int x)
         main();
     else if (x == 2)
         open_first_task();
-    else {
-        printf("Вы ввели что-то другое...");
-        return -1;
-    }
     return 0;
+}
+int check_see_answer(char* answer, char* no, char* yes)
+{
+    if (strcmp(answer, no) != 0 && strcmp(answer, yes) != 0) {
+        printf("Вы ввели что-то другое.");
+        exit(1);
+    } else
+        return 0;
 }
 int see_answer(
         int z,
@@ -46,10 +50,19 @@ int see_answer(
             printf("Правильный ответ: %s\n", ch2);
             continue_task(1);
         }
-    } else if (strcmp(answer, no) == 0) {
+    } else if (strcmp(answer, no) == 0)
         continue_task(1);
-    } else if (strcmp(answer, no) != 0 && strcmp(answer, yes) != 0) {
-        printf("Вы чет не то ввели.");
+    return 0;
+}
+int check_user_verb(char* second_verb, char* third_verb)
+{
+    for (int i = 0; second_verb[i];) {
+        if (isalpha(third_verb[i]) && isalpha(second_verb[i]))
+            i++;
+        else {
+            printf("Вы ввели не буквы.");
+            return 1;
+        }
     }
     return 0;
 }
@@ -60,14 +73,8 @@ int check_answer_first(int x)
     scanf("%s", second_verb);
     printf("Введите третью форму лагола\n");
     scanf("%s", third_verb);
-    for (int i = 0; second_verb[i];) {
-        if (isalpha(third_verb[i]) && isalpha(second_verb[i]))
-            i++;
-        else {
-            printf("Вы ввели не буквы.");
-            return 1;
-        }
-    }
+    check_user_verb(second_verb, third_verb);
+
     char ch[A] = {0}, ch1[A] = {0}, ch2[A] = {0};
     FILE* answer_first;
     answer_first = fopen("../text_file/answer_first.txt", "r");
