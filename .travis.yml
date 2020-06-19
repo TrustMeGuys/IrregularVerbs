@@ -1,6 +1,5 @@
 language: c
-os: windows
 compiler: gcc
 script:
-  - mingw32-make
+  -make
   - git ls-files sources/ | xargs clang-format -i && git diff --exit-code
