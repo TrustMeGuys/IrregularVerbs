@@ -84,7 +84,7 @@ CTEST(check_user_verb, correct_answer_1)
 
 CTEST(check_user_verb, correct_answer_2)
 {
-    char user_verb[3] = "lol";
+    char user_verb[5] = "lol";
     const int result = check_user_verb(user_verb);
     const int expected = 0;
     ASSERT_EQUAL(expected, result);
