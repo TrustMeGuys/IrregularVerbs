@@ -110,7 +110,7 @@ int check_answer(int num_sent)
     return 0;
 }
 
-int variant_answer(int num_sent)
+int work_in_variant_answer_third_file(int num_sent)
 {
     FILE* answer_third;
     answer_third
@@ -118,7 +118,7 @@ int variant_answer(int num_sent)
                     "variant_answer_third.txt",
                     "r");
     if (answer_third == NULL) {
-        printf("Кажется произошла ошибка открытия файла...");
+        printf("Кажется файл пуст или не найден к нему путь...");
         return 1;
     }
     char ch[B] = {0}, ch1[B] = {0};
@@ -130,7 +130,33 @@ int variant_answer(int num_sent)
         fgets(ch, B, answer_third);
     }
     fclose(answer_third);
+    return 0;
+}
+
+int variant_answer(int num_sent)
+{
+    work_in_variant_answer_third_file(num_sent);
     check_answer(num_sent);
+    return 0;
+}
+
+int work_in_three_task_file(int num_sent)
+{
+    FILE* three_task;
+    three_task = fopen("../text_file/three_task.txt", "r");
+    if (three_task == NULL) {
+        printf("Кажется файл пуст или не найден к нему путь...\n");
+        return 1;
+    }
+    char ch[B] = {0}, ch1[B] = {0};
+    for (int i = 1; i < num_sent + 1; i++) {
+        if (i == num_sent) {
+            fgets(ch1, B, three_task);
+            printf("%s\n", ch1);
+        }
+        fgets(ch, B, three_task);
+    }
+    fclose(three_task);
     return 0;
 }
 
@@ -142,22 +168,8 @@ int task_three()
         printf("Вы ввели что-то другое...\n");
         return -1;
     }
-    FILE* three_task;
-    three_task = fopen("../text_file/three_task.txt", "r");
-    if (three_task == NULL) {
-        printf("Кажется произошла ошибка открытия файла...\n");
-        return -1;
-    }
-    char ch[B] = {0}, ch1[B] = {0};
-    for (int i = 1; i < num_sent + 1; i++) {
-        if (i == num_sent) {
-            fgets(ch1, B, three_task);
-            printf("%s\n", ch1);
-        }
-        fgets(ch, B, three_task);
-    }
+    work_in_three_task_file(num_sent);
     variant_answer(num_sent);
-    fclose(three_task);
     return 0;
 }
 
