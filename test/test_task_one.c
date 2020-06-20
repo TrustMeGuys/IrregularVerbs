@@ -1,7 +1,7 @@
 #include <ctest.h>
 #include <task_one.h>
 
-CTEST(see_answer_function, correct_anser_1)
+CTEST(see_answer_function, correct_answer_1)
 {
     char answer[3] = "y";
     char yes[3] = "y";
@@ -10,7 +10,7 @@ CTEST(see_answer_function, correct_anser_1)
     const int expected = 0;
     ASSERT_EQUAL(expected, result);
 }
-CTEST(see_answer_function, correct_anser_2)
+CTEST(see_answer_function, correct_answer_2)
 {
     char answer[3] = "n";
     char yes[3] = "y";
