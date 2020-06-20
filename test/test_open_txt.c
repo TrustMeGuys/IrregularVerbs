@@ -5,7 +5,7 @@
 CTEST(check_file_task_one, correct_answer_1)
 {
     FILE* some_file;
-    some_file = fopen("test_file.txt", "r");
+    some_file = fopen("test_file.txt", "w");
     const int result = check_file_open_txt(some_file);
     const int expected = 0;
     ASSERT_EQUAL(expected, result);
