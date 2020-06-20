@@ -117,10 +117,9 @@ int work_in_variant_answer_third_file(int num_sent)
             = fopen("../text_file/"
                     "variant_answer_third.txt",
                     "r");
-    if (answer_third == NULL) {
-        printf("Кажется файл пуст или не найден к нему путь...");
-        return 1;
-    }
+    int flag = check_file_open_txt(answer_third);
+    if (flag)
+        return flag;
     char ch[B] = {0}, ch1[B] = {0};
     for (int i = 1; i < num_sent + 1; i++) {
         if (i == num_sent) {
@@ -130,7 +129,7 @@ int work_in_variant_answer_third_file(int num_sent)
         fgets(ch, B, answer_third);
     }
     fclose(answer_third);
-    return 0;
+    return flag;
 }
 
 int variant_answer(int num_sent)
@@ -144,10 +143,9 @@ int work_in_three_task_file(int num_sent)
 {
     FILE* three_task;
     three_task = fopen("../text_file/three_task.txt", "r");
-    if (three_task == NULL) {
-        printf("Кажется файл пуст или не найден к нему путь...\n");
-        return 1;
-    }
+    int flag = check_file_open_txt(three_task);
+    if (flag)
+        return flag;
     char ch[B] = {0}, ch1[B] = {0};
     for (int i = 1; i < num_sent + 1; i++) {
         if (i == num_sent) {
@@ -157,7 +155,7 @@ int work_in_three_task_file(int num_sent)
         fgets(ch, B, three_task);
     }
     fclose(three_task);
-    return 0;
+    return flag;
 }
 
 int task_three()
