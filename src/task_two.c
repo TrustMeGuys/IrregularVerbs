@@ -59,7 +59,7 @@ int second_task()
     check_file_open_txt(samo_zadanie);
     printf("Выберете номер предложения,которое хотите сделать(1-20):\n");
     int z = choose_your_number();
-    if (z == 0 || z <= 21) {
+    if (z == 0 || z >= 21) {
         printf("Вы ввели 0 или число больше 20");
         exit(1);
     }
