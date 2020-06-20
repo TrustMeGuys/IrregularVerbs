@@ -57,9 +57,10 @@ int second_task()
     FILE* samo_zadanie;
     samo_zadanie = fopen("../text_file/task_two.txt", "r");
     check_file_open_txt(samo_zadanie);
-    printf("Выберете номер предложения,которое хотите сделать:\n");
+    printf("Выберете номер предложения,которое хотите сделать(1-20):\n");
     int z = choose_your_number();
-    if (z == 0) {
+    if (z == 0 || z <= 21) {
+        printf("Вы ввели 0 или число больше 20");
         exit(1);
     }
     char ch[200] = {0};
