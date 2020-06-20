@@ -56,11 +56,7 @@ int second_task()
     int i = 0;
     FILE* samo_zadanie;
     samo_zadanie = fopen("../text_file/task_two.txt", "r");
-
-    if (samo_zadanie == NULL) {
-        printf("Кажется произошла ошибка открытия файла...\n");
-        return 1;
-    }
+    check_file_open_txt(samo_zadanie);
     printf("Выберете номер предложения,которое хотите сделать:\n");
     int z = choose_your_number();
 

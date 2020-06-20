@@ -7,6 +7,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+int check_file_open_txt(FILE* some_file)
+{
+    if (some_file == NULL) {
+        printf("Кажется произошла ошибка открытия файла...\n");
+        return 1;
+    }
+    return 0;
+}
 int check_choose_number(int num_choice)
 {
     if (num_choice <= 0) {
@@ -27,10 +35,7 @@ int open_all_task()
 {
     FILE* task;
     task = fopen("../text_file/all_task.txt", "r");
-    if (task == NULL) {
-        printf("Кажется произошла ошибка открытия файла...\n");
-        exit(EXIT_FAILURE);
-    }
+    check_file_open_txt(task);
     char all_task[F] = {0};
     while (!feof(task)) {
         fgets(all_task, F, task);

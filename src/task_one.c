@@ -79,10 +79,7 @@ int check_answer_first(int x)
     char ch[A] = {0}, ch1[A] = {0}, ch2[A] = {0};
     FILE* answer_first;
     answer_first = fopen("../text_file/answer_first.txt", "r");
-    if (answer_first == NULL) {
-        printf("Кажется произошла ошибка открытия файла...\n");
-        return 1;
-    }
+    check_file_open_txt(answer_first);
     for (int i = 0; i <= x * 3 + 1; i++) {
         if (i == x * 3 + 1) {
             fscanf(answer_first, "%s", ch1);
@@ -122,10 +119,7 @@ int open_first_task()
             = fopen("../text_file/"
                     "first_task_verb.txt",
                     "r");
-    if (first_task == NULL) {
-        printf("Кажется произошла ошибка открытия файла...\n");
-        return 1;
-    }
+    check_file_open_txt(first_task);
     printf("Выберете номер глагола(1-100):");
     int x = choose_your_number();
     int i = 1;
