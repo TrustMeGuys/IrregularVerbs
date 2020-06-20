@@ -11,7 +11,7 @@ int check_choose_number(int num_choice)
 {
     if (num_choice <= 0) {
         printf(" Вы ввели что-то другое.\n");
-        exit(1);
+        return 1;
     } else
         return 0;
 }

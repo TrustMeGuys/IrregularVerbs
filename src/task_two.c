@@ -13,10 +13,6 @@ int return_task_two(int x)
         main();
     else if (x == 2)
         second_task();
-    else {
-        printf("Вы ввели что-то другое...");
-        return -1;
-    }
     return 0;
 }
 int check_answer_second(int z)
