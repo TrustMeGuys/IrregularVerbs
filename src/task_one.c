@@ -80,8 +80,8 @@ int check_answer_first(int x)
     FILE* answer_first;
     answer_first = fopen("../text_file/answer_first.txt", "r");
     check_file_open_txt(answer_first);
-    for (int i = 0; i <= x * 3 + 1; i++) {
-        if (i == x * 3 + 1) {
+    for (int i = 0; i <= x * 3; i++) {
+        if (i == x * 3) {
             fscanf(answer_first, "%s", ch1);
             fscanf(answer_first, "%s", ch2);
         }
