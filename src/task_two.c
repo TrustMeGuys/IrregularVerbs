@@ -62,13 +62,13 @@ int second_task()
     if (z == 0) {
         exit(1);
     }
-    char ch[100] = {0};
+    char ch[200] = {0};
     while (i <= z * 4 + 1) {
-        fgets(ch, 100, samo_zadanie);
+        fgets(ch, 200, samo_zadanie);
         if (i == z * 4) {
             while (i <= z * 4 + 3) {
                 printf("\n %s\n", ch);
-                fgets(ch, 100, samo_zadanie);
+                fgets(ch, 200, samo_zadanie);
                 i++;
             }
         }
