@@ -1,5 +1,6 @@
 #ifndef ALL_TASK_H
 #define ALL_TASK_H
+#include <stdio.h>
 #define F 40
 
 int choose_your_number();
